@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import Avator from '@/components/Avator'
 // import { MicrophoneIcon } from '@heroicons/react/24/solid'
 import { BsFillGridFill } from 'react-icons/bs'
@@ -72,7 +71,7 @@ function Home() {
             className='h-5 mr-3 text-gray-500'
           />
           <input ref={searchInputRef}
-            className='focus:outine-none flex-grow ' type='search' placeholder='Search' />
+            className='focus:outine-none flex-grow focus:outline-none' type='search' placeholder='Search' />
           <MicrophoneIcon className='h-5 text-gray-500' />
         </div>
 
