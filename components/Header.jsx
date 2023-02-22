@@ -2,11 +2,23 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 import { MicrophoneIcon, SearchIcon, XIcon } from '@heroicons/react/outline';
-import { search } from '../pages/index'
+// import { search } from '../pages/index'
+import Avator from './Avator';
+import HeaderOptions from './HeaderOptions';
+import Link from 'next/link';
 
 function Header() {
     const router = useRouter();
     const searchInputRef = useRef(null);
+
+    const search = (e) => {
+        e.preventDefault();
+        const term = searchInputRef.current.value;
+
+        if (!term) return;
+
+        router.push(`/search?term=${term}`);
+    };
 
     return (
         <header className='sticky top-0 bg-white'>
@@ -30,7 +42,14 @@ function Header() {
                     <SearchIcon className='h-6 text-blue-500 hidden sm:inline-flex' />
                     <button onClick={search} hidden type='submit'>Search</button>
                 </form>
+                {/* <Link href='https://jcashleyportfolio.netlify.app'> */}
+                <Avator url='https://avatars.githubusercontent.com/u/113396637?v=4' className='ml-auto' />
+                {/* </Link> */}
             </div>
+
+            {/* header option */}
+
+            <HeaderOptions />
         </header>
     )
 }
